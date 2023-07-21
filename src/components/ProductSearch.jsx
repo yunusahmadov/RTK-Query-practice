@@ -18,13 +18,21 @@ function ProductSearch() {
     setSearchTerm(event.target.value);
   };
   return (
-    <div>
-      <input
+    <>
+    <header className="py-5">
+      <div  className="flex text-3xl w-3/4 bg-emerald-400 m-auto px-5 justify-between">
+      <h1>Found.az </h1>
+    <input
+        className=""
         type="text"
         placeholder="Search products..."
         value={searchTerm}
         onChange={handleSearch}
       />
+      </div>
+    </header>
+          <div>
+
       {searchLoading ? (
         <h2>Loading...</h2>
       ) : (
@@ -32,20 +40,21 @@ function ProductSearch() {
           {products.map((item) => (
             <div
               key={item.id}
-              className="bg-slate-600 py-10 w-[400px] min-h-[600px] flex flex-col justify-center "
+              className="bg-slate-600  w-[300px] min-h-[250px] flex flex-col justify-center rounded-xl pb-3"
             >
-              <div>
-                <h1>{item.title}</h1>
+              <div className="flex flex-col items-center">
                 <img
-                  className="object-fill h-[300px] w-full"
+                  className="object-fill h-[300px] w-full rounded-t-xl"
                   src={item.thumbnail}
                 />
               </div>
-              <div>
-                <p>Price:${item.price}</p>
-                <p>Brand:{item.brand}</p>
-                <p>Price:{item.category}</p>
-                <Link to={`/products/${item.id}`}>Show details</Link>
+              <div className="flex flex-col ">
+                  <div className="flex justify-between px-2">
+                  <h1 className="text-sm">{item.title}</h1>
+                <p className="text-2xl font-semibold">${item.price}</p>
+                  </div>
+                {/* <p>Category:{item.category}</p> */}
+                <Link className="bg-slate-400 p-1 rounded-lg ml-auto mr-2" to={`/products/${item.id}`}>View Details</Link>
               </div>
 
             </div>
@@ -53,10 +62,13 @@ function ProductSearch() {
         </div>
       )}
       {
-        products.length==0 && <div>Nothing found for your request
-        </div>
+        products.length==0 && 
+       <h1 className="text-3xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        Sorry! Nothing found for your request
+       </h1>
       }
     </div>
+    </>
   );
 }
 

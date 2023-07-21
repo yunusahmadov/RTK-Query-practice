@@ -32,6 +32,7 @@ function ProductsDetail() {
             <p>{description}</p>
             <p>{price}</p>
             <p>{discountPercentage}</p>
+
             {
                 images.map((imageUrl,index)=>(
                     <img key={index} src={imageUrl} alt={`Image ${index + 1}`} />

@@ -9,10 +9,15 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
   }
+  body{
+    @apply bg-slate-400
+  }
 
   /* container */
   .container{
     @apply w-11/12 m-auto;
   }
-  
+  .error-bg{
+    background-image:'https://cdn.dribbble.com/users/2497060/screenshots/9266665/media/aaf4c50193b2901c0e8d13eb6f505421.gif';
+  }
 }
